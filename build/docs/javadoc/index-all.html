@@ -1158,7 +1158,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="utils/IntArray.html#get(int)" class="member-name-link">get(int)</a> - Method in class utils.<a href="utils/IntArray.html" title="class in utils">IntArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/IntMap.html#get(int)" class="member-name-link">get(int)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Retrieves the value associated with a given key.</div>
+</dd>
 <dt><a href="utils/LongArray.html#get(int)" class="member-name-link">get(int)</a> - Method in class utils.<a href="utils/LongArray.html" title="class in utils">LongArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/LongQueue.html#get(int)" class="member-name-link">get(int)</a> - Method in class utils.<a href="utils/LongQueue.html" title="class in utils">LongQueue</a></dt>
@@ -1176,7 +1178,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="utils/IntIntMap.html#get(int,int)" class="member-name-link">get(int, int)</a> - Method in class utils.<a href="utils/IntIntMap.html" title="class in utils">IntIntMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/IntMap.html#get(int,V)" class="member-name-link">get(int, V)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Retrieves the value associated with a given key, or returns a default value if the key is not found.</div>
+</dd>
 <dt><a href="utils/LongMap.html#get(long)" class="member-name-link">get(long)</a> - Method in class utils.<a href="utils/LongMap.html" title="class in utils">LongMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/LongMap.html#get(long,V)" class="member-name-link">get(long, V)</a> - Method in class utils.<a href="utils/LongMap.html" title="class in utils">LongMap</a></dt>
@@ -1719,22 +1723,24 @@ loadScripts(document, 'script');</script>
 <dt><a href="utils/IntIntMap.Values.html" class="type-name-link" title="class in utils">IntIntMap.Values</a> - Class in <a href="utils/package-summary.html">utils</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/IntMap.html" class="type-name-link" title="class in utils">IntMap</a>&lt;<a href="utils/IntMap.html" title="type parameter in IntMap">V</a>&gt; - Class in <a href="utils/package-summary.html">utils</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A hash map implementation that uses primitive int keys rather than objects.</div>
+</dd>
 <dt><a href="utils/IntMap.html#%3Cinit%3E()" class="member-name-link">IntMap()</a> - Constructor for class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Creates a new map with an initial capacity of 51 and a load factor of 0.8.</div>
+<div class="block">Default constructor.</div>
 </dd>
 <dt><a href="utils/IntMap.html#%3Cinit%3E(int)" class="member-name-link">IntMap(int)</a> - Constructor for class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Creates a new map with a load factor of 0.8.</div>
+<div class="block">Constructor with initial capacity.</div>
 </dd>
 <dt><a href="utils/IntMap.html#%3Cinit%3E(int,float)" class="member-name-link">IntMap(int, float)</a> - Constructor for class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Creates a new map with the specified initial capacity and load factor.</div>
+<div class="block">Constructor with initial capacity and load factor.</div>
 </dd>
 <dt><a href="utils/IntMap.html#%3Cinit%3E(utils.IntMap)" class="member-name-link">IntMap(IntMap&lt;? extends V&gt;)</a> - Constructor for class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Creates a new map identical to the specified map.</div>
+<div class="block">Copy constructor.</div>
 </dd>
 <dt><a href="utils/IntMap.Entries.html" class="type-name-link" title="class in utils">IntMap.Entries</a>&lt;<a href="utils/IntMap.Entries.html" title="type parameter in IntMap.Entries">V</a>&gt; - Class in <a href="utils/package-summary.html">utils</a></dt>
 <dd>&nbsp;</dd>
@@ -2321,7 +2327,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="utils/IntMap.html#mask" class="member-name-link">mask</a> - Variable in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">A bitmask used to confine hashcodes to the size of the table.</div>
+<div class="block">A bitmask used to confine hash codes to the size of the table.</div>
 </dd>
 <dt><a href="utils/IntSet.html#mask" class="member-name-link">mask</a> - Variable in class utils.<a href="utils/IntSet.html" title="class in utils">IntSet</a></dt>
 <dd>
@@ -2915,7 +2921,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="utils/IntMap.html#place(int)" class="member-name-link">place(int)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Returns an index &gt;= 0 and &lt;= <a href="utils/IntMap.html#mask"><code>IntMap.mask</code></a> for the specified <code>item</code>.</div>
+<div class="block">Calculates the index in the key table where the given item should be placed.</div>
 </dd>
 <dt><a href="utils/IntSet.html#place(int)" class="member-name-link">place(int)</a> - Method in class utils.<a href="utils/IntSet.html" title="class in utils">IntSet</a></dt>
 <dd>
@@ -3042,7 +3048,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the old value associated with the specified key, or the specified default value.</div>
 </dd>
 <dt><a href="utils/IntMap.html#put(int,V)" class="member-name-link">put(int, V)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Inserts or updates a key-value pair in the map.</div>
+</dd>
 <dt><a href="utils/LongMap.html#put(long,V)" class="member-name-link">put(long, V)</a> - Method in class utils.<a href="utils/LongMap.html" title="class in utils">LongMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/ObjectFloatMap.html#put(K,float)" class="member-name-link">put(K, float)</a> - Method in class utils.<a href="utils/ObjectFloatMap.html" title="class in utils">ObjectFloatMap</a></dt>
@@ -3074,7 +3082,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="utils/IntIntMap.html#putAll(utils.IntIntMap)" class="member-name-link">putAll(IntIntMap)</a> - Method in class utils.<a href="utils/IntIntMap.html" title="class in utils">IntIntMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/IntMap.html#putAll(utils.IntMap)" class="member-name-link">putAll(IntMap&lt;? extends V&gt;)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Inserts all key-value pairs from another IntMap into this map.</div>
+</dd>
 <dt><a href="utils/LongMap.html#putAll(utils.LongMap)" class="member-name-link">putAll(LongMap&lt;? extends V&gt;)</a> - Method in class utils.<a href="utils/LongMap.html" title="class in utils">LongMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="utils/ObjectFloatMap.html#putAll(utils.ObjectFloatMap)" class="member-name-link">putAll(ObjectFloatMap&lt;? extends K&gt;)</a> - Method in class utils.<a href="utils/ObjectFloatMap.html" title="class in utils">ObjectFloatMap</a></dt>
@@ -3293,7 +3303,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="utils/IntMap.html#remove(int)" class="member-name-link">remove(int)</a> - Method in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Returns the value for the removed key, or null if the key is not in the map.</div>
+<div class="block">Removes a key-value pair from the map.</div>
 </dd>
 <dt><a href="utils/IntSet.html#remove(int)" class="member-name-link">remove(int)</a> - Method in class utils.<a href="utils/IntSet.html" title="class in utils">IntSet</a></dt>
 <dd>
@@ -3715,8 +3725,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="utils/IntMap.html#shift" class="member-name-link">shift</a> - Variable in class utils.<a href="utils/IntMap.html" title="class in utils">IntMap</a></dt>
 <dd>
-<div class="block">Used by <a href="utils/IntMap.html#place(int)"><code>IntMap.place(int)</code></a> to bit shift the upper bits of a <code>long</code> into a usable range (&gt;= 0 and &lt;=
- <a href="utils/IntMap.html#mask"><code>IntMap.mask</code></a>).</div>
+<div class="block">Used for bit-shifting the hash codes into a usable range.</div>
 </dd>
 <dt><a href="utils/IntSet.html#shift" class="member-name-link">shift</a> - Variable in class utils.<a href="utils/IntSet.html" title="class in utils">IntSet</a></dt>
 <dd>

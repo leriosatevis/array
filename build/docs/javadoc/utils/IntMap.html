@@ -75,6 +75,10 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>V</code> - the type of mapped values</dd>
+</dl>
+<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="IntMap.Entry.html" title="class in utils">IntMap.Entry</a>&lt;V&gt;&gt;</code></dd>
 </dl>
@@ -82,6 +86,9 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IntMap&lt;V&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="IntMap.Entry.html" title="class in utils">IntMap.Entry</a>&lt;V&gt;&gt;</span></div>
+<div class="block">A hash map implementation that uses primitive int keys rather than objects.
+ This class provides methods for basic operations such as put, get, remove, containsKey, and clear.
+ It also implements the Iterable interface to allow iteration over its entries.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -121,13 +128,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first even-row-color"><code>protected int</code></div>
 <div class="col-second even-row-color"><code><a href="#mask" class="member-name-link">mask</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">A bitmask used to confine hashcodes to the size of the table.</div>
+<div class="block">A bitmask used to confine hash codes to the size of the table.</div>
 </div>
 <div class="col-first odd-row-color"><code>protected int</code></div>
 <div class="col-second odd-row-color"><code><a href="#shift" class="member-name-link">shift</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Used by <a href="#place(int)"><code>place(int)</code></a> to bit shift the upper bits of a <code>long</code> into a usable range (&gt;= 0 and &lt;=
- <a href="#mask"><code>mask</code></a>).</div>
+<div class="block">Used for bit-shifting the hash codes into a usable range.</div>
 </div>
 <div class="col-first even-row-color"><code>int</code></div>
 <div class="col-second even-row-color"><code><a href="#size" class="member-name-link">size</a></code></div>
@@ -145,20 +151,20 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">IntMap</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates a new map with an initial capacity of 51 and a load factor of 0.8.</div>
+<div class="block">Default constructor.</div>
 </div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">IntMap</a><wbr>(int&nbsp;initialCapacity)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Creates a new map with a load factor of 0.8.</div>
+<div class="block">Constructor with initial capacity.</div>
 </div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,float)" class="member-name-link">IntMap</a><wbr>(int&nbsp;initialCapacity,
  float&nbsp;loadFactor)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Creates a new map with the specified initial capacity and load factor.</div>
+<div class="block">Constructor with initial capacity and load factor.</div>
 </div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(utils.IntMap)" class="member-name-link">IntMap</a><wbr>(<a href="IntMap.html" title="class in utils">IntMap</a>&lt;? extends <a href="IntMap.html" title="type parameter in IntMap">V</a>&gt;&nbsp;map)</code></div>
 <div class="col-last odd-row-color">
-<div class="block">Creates a new map identical to the specified map.</div>
+<div class="block">Copy constructor.</div>
 </div>
 </div>
 </section>
@@ -218,11 +224,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IntMap.html" title="type parameter in IntMap">V</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(int)" class="member-name-link">get</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the value associated with a given key.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IntMap.html" title="type parameter in IntMap">V</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(int,V)" class="member-name-link">get</a><wbr>(int&nbsp;key,
  <a href="IntMap.html" title="type parameter in IntMap">V</a>&nbsp;defaultValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the value associated with a given key, or returns a default value if the key is not found.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -247,19 +257,23 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#place(int)" class="member-name-link">place</a><wbr>(int&nbsp;item)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns an index &gt;= 0 and &lt;= <a href="#mask"><code>mask</code></a> for the specified <code>item</code>.</div>
+<div class="block">Calculates the index in the key table where the given item should be placed.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IntMap.html" title="type parameter in IntMap">V</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#put(int,V)" class="member-name-link">put</a><wbr>(int&nbsp;key,
  <a href="IntMap.html" title="type parameter in IntMap">V</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts or updates a key-value pair in the map.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#putAll(utils.IntMap)" class="member-name-link">putAll</a><wbr>(<a href="IntMap.html" title="class in utils">IntMap</a>&lt;? extends <a href="IntMap.html" title="type parameter in IntMap">V</a>&gt;&nbsp;map)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts all key-value pairs from another IntMap into this map.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IntMap.html" title="type parameter in IntMap">V</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(int)" class="member-name-link">remove</a><wbr>(int&nbsp;key)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value for the removed key, or null if the key is not in the map.</div>
+<div class="block">Removes a key-value pair from the map.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shrink(int)" class="member-name-link">shrink</a><wbr>(int&nbsp;maximumCapacity)</code></div>
@@ -304,23 +318,16 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="shift">
 <h3>shift</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">shift</span></div>
-<div class="block">Used by <a href="#place(int)"><code>place(int)</code></a> to bit shift the upper bits of a <code>long</code> into a usable range (&gt;= 0 and &lt;=
- <a href="#mask"><code>mask</code></a>). The shift can be negative, which is convenient to match the number of bits in mask: if mask is a 7-bit
- number, a shift of -7 shifts the upper 7 bits into the lowest 7 positions. This class sets the shift &gt; 32 and &lt; 64,
- which if used with an int will still move the upper bits of an int to the lower bits due to Java's implicit modulus on
- shifts.
- <p>
- <a href="#mask"><code>mask</code></a> can also be used to mask the low bits of a number, which may be faster for some hashcodes, if
- <a href="#place(int)"><code>place(int)</code></a> is overridden.</div>
+<div class="block">Used for bit-shifting the hash codes into a usable range.
+ For more details, see the class-level comment block.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="mask">
 <h3>mask</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">mask</span></div>
-<div class="block">A bitmask used to confine hashcodes to the size of the table. Must be all 1 bits in its low positions, ie a power of two
- minus 1. If <a href="#place(int)"><code>place(int)</code></a> is overriden, this can be used instead of <a href="#shift"><code>shift</code></a> to isolate usable bits of a
- hash.</div>
+<div class="block">A bitmask used to confine hash codes to the size of the table.
+ For more details, see the class-level comment block.</div>
 </section>
 </li>
 </ul>
@@ -335,17 +342,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="&lt;init&gt;()">
 <h3>IntMap</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IntMap</span>()</div>
-<div class="block">Creates a new map with an initial capacity of 51 and a load factor of 0.8.</div>
+<div class="block">Default constructor. Initializes the map with an initial capacity of 51 and a load factor of 0.8.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(int)">
 <h3>IntMap</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IntMap</span><wbr><span class="parameters">(int&nbsp;initialCapacity)</span></div>
-<div class="block">Creates a new map with a load factor of 0.8.</div>
+<div class="block">Constructor with initial capacity. Initializes the map with the given initial capacity and a default load factor of 0.8.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>initialCapacity</code> - The backing array size is initialCapacity / loadFactor, increased to the next power of two.</dd>
+<dd><code>initialCapacity</code> - The initial capacity of the map.</dd>
 </dl>
 </section>
 </li>
@@ -354,11 +361,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3>IntMap</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IntMap</span><wbr><span class="parameters">(int&nbsp;initialCapacity,
  float&nbsp;loadFactor)</span></div>
-<div class="block">Creates a new map with the specified initial capacity and load factor. This map will hold initialCapacity items before
- growing the backing table.</div>
+<div class="block">Constructor with initial capacity and load factor.
+ Initializes the map with the given initial capacity and load factor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>initialCapacity</code> - The backing array size is initialCapacity / loadFactor, increased to the next power of two.</dd>
+<dd><code>initialCapacity</code> - The initial capacity of the map.</dd>
+<dd><code>loadFactor</code> - The load factor for internal resizing operations.</dd>
 </dl>
 </section>
 </li>
@@ -366,7 +374,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="&lt;init&gt;(utils.IntMap)">
 <h3>IntMap</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IntMap</span><wbr><span class="parameters">(<a href="IntMap.html" title="class in utils">IntMap</a>&lt;? extends <a href="IntMap.html" title="type parameter in IntMap">V</a>&gt;&nbsp;map)</span></div>
-<div class="block">Creates a new map identical to the specified map.</div>
+<div class="block">Copy constructor. Creates a new map that is identical to the specified map.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>map</code> - The map to copy.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -381,19 +393,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="place(int)">
 <h3>place</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">place</span><wbr><span class="parameters">(int&nbsp;item)</span></div>
-<div class="block">Returns an index &gt;= 0 and &lt;= <a href="#mask"><code>mask</code></a> for the specified <code>item</code>.
- <p>
- The default implementation uses Fibonacci hashing on the item's <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a>: the hashcode is multiplied by a
- long constant (2 to the 64th, divided by the golden ratio) then the uppermost bits are shifted into the lowest positions to
- obtain an index in the desired range. Multiplication by a long may be slower than int (eg on GWT) but greatly improves
- rehashing, allowing even very poor hashcodes, such as those that only differ in their upper bits, to be used without high
- collision rates. Fibonacci hashing has increased collision rates when all or most hashcodes are multiples of larger
- Fibonacci numbers (see <a href="https://probablydance.com/2018/06/16/fibonacci-hashing-the-optimization-that-the-world-forgot-or-a-better-alternative-to-integer-modulo/">Malte
- Skarupke's blog post</a>).
- <p>
- This method can be overriden to customizing hashing. This may be useful eg in the unlikely event that most hashcodes are
- Fibonacci numbers, if keys provide poor or incorrect hashcodes, or to simplify hashing if keys provide high quality
- hashcodes and don't need Fibonacci hashing: <code>return item.hashCode() &amp; mask;</code></div>
+<div class="block">Calculates the index in the key table where the given item should be placed.
+ Uses Fibonacci hashing to distribute hash codes across the table.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>item</code> - The item whose placement index is to be calculated.</dd>
+<dt>Returns:</dt>
+<dd>The calculated index within the bounds of the key table.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -403,18 +410,38 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IntMap.html" title="type parameter in IntMap">V</a></span>&nbsp;<span class="element-name">put</span><wbr><span class="parameters">(int&nbsp;key,
  <a href="Null.html" title="annotation interface in utils">@Null</a>
  <a href="IntMap.html" title="type parameter in IntMap">V</a>&nbsp;value)</span></div>
+<div class="block">Inserts or updates a key-value pair in the map.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - The key to insert or update.</dd>
+<dd><code>value</code> - The value to associate with the key.</dd>
+<dt>Returns:</dt>
+<dd>The old value associated with the key, or null if the key is new.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="putAll(utils.IntMap)">
 <h3>putAll</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">putAll</span><wbr><span class="parameters">(<a href="IntMap.html" title="class in utils">IntMap</a>&lt;? extends <a href="IntMap.html" title="type parameter in IntMap">V</a>&gt;&nbsp;map)</span></div>
+<div class="block">Inserts all key-value pairs from another IntMap into this map.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>map</code> - The source map.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="get(int)">
 <h3>get</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IntMap.html" title="type parameter in IntMap">V</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Retrieves the value associated with a given key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - The key whose associated value is to be returned.</dd>
+<dt>Returns:</dt>
+<dd>The value associated with the specified key, or null if the key is not found.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -423,6 +450,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IntMap.html" title="type parameter in IntMap">V</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(int&nbsp;key,
  <a href="Null.html" title="annotation interface in utils">@Null</a>
  <a href="IntMap.html" title="type parameter in IntMap">V</a>&nbsp;defaultValue)</span></div>
+<div class="block">Retrieves the value associated with a given key, or returns a default value if the key is not found.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - The key whose associated value is to be returned.</dd>
+<dd><code>defaultValue</code> - The default value to return if the key is not found.</dd>
+<dt>Returns:</dt>
+<dd>The value associated with the specified key, or the default value.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -430,7 +465,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3>remove</h3>
 <div class="member-signature"><span class="annotations"><a href="Null.html" title="annotation interface in utils">@Null</a>
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IntMap.html" title="type parameter in IntMap">V</a></span>&nbsp;<span class="element-name">remove</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
-<div class="block">Returns the value for the removed key, or null if the key is not in the map.</div>
+<div class="block">Removes a key-value pair from the map.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - The key to remove.</dd>
+<dt>Returns:</dt>
+<dd>The value that was associated with the removed key, or null if the key was not found.</dd>
+</dl>
 </section>
 </li>
 <li>
